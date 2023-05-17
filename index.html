@@ -1,13 +1,14 @@
 <head>
     <!-- Load plotly.js into the DOM -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="plotlyjspractice.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
     <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+    <div id="myDiv2"><!-- Plotly chart will be drawn inside this DIV --></div>
     <script>
-        function plot() {
+        function scatterPlot() {
             var trace1 = {
                 x: [1, 2, 3, 4],
                 y: [10, 15, 13, 17],
@@ -25,6 +26,22 @@
             Plotly.newPlot(myDiv, data);
         }
         
-        plot();
+        function pieChart(){
+            var data = [{
+                values: [19, 26, 55],
+                labels: ['Residential', 'Non-Residential', 'Utility'],
+                type: 'pie'
+            }];
+
+            var layout = {
+                height: 400,
+                width: 500
+            };
+
+            Plotly.newPlot(myDiv2, data);
+        }
+
+        scatterPlot();
+        pieChart();
     </script>
 </body>

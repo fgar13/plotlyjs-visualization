@@ -40,8 +40,60 @@
 
             Plotly.newPlot(myDiv2, data);
         }
+        // function test(){
+        //     // Generate a 2D array with random numbers
+        //     var arr_1 = [];
+        //     for (var i = 0; i < 50; i++) {
+        //     var row = [];
+        //     for (var j = 0; j < 4; j++) {
+        //         row.push(Math.random());
+        //     }
+        //     arr_1.push(row);
+        //     }
 
+        //     // Create a DataFrame using the array and column names
+        //     var df_1 = new DataFrame(arr_1, ['A', 'B', 'C', 'D']);
+
+        //     // Display the first few rows of the DataFrame
+        //     console.log(df_1.head());
+
+        //     // Plot the DataFrame (static plot)
+        //     df_1.plot();
+
+        //     // Plot the DataFrame (interactive plot)
+        //     df_1.iplot();
+
+        //     Plotly.newPlot(myDiv2, data);
+        // }
+        
+
+        function test(){
+            //const arr_1 = Array.from({ length: 50 }, () => Array.from({ length: 4 }, () => Math.random()));
+            const arr_1 = Array.from(Array(50), () => Array.from({ length: 4 }, () => Math.random()));
+
+            console.log(arr_1)
+            console.log("lo0ok")
+            console.log({length: 50})
+            console.log("asdf")
+            const df_1 = { 'A': [], 'B': [], 'C': [], 'D': [] };
+            for (let i = 0; i < 50; i++) {
+            df_1['A'].push(arr_1[i][0]);
+            df_1['B'].push(arr_1[i][1]);
+            df_1['C'].push(arr_1[i][2]);
+            df_1['D'].push(arr_1[i][3]);
+            }
+
+            // df_1.head() - Displaying the first few rows of the dataframe
+            console.log(df_1);
+
+            // Compare old plots to a Plotly interactive plot
+            // You can save as PNG, Zoom, Pan, Turn off & on Data and more
+            // Plotly.newPlot(df_1);
+            Plotly.newPlot(myDiv2, df_1);
+        }
+
+        test()
         scatterPlot();
-        pieChart();
+        // pieChart();
     </script>
 </body>
